@@ -1,4 +1,8 @@
 players="$(curl -s https://steamcommunity.com/app/570940 | grep -Po -m 1 "(?<=>).*(?= In-Game)" | sed 's/,//g')"
+if [ -z "$players" ]
+    then
+    exit 1
+fi
 echo "players= $players"
 echo $players >> ~/trd/dsr.log
 echo $players >> ~/stor/trd/dsr.log
