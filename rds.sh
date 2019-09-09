@@ -1,7 +1,7 @@
-active=$(curl -A "xvk3-scraper" -s "https://www.reddit.com/r/darksouls" | grep -Po -m1 "(?<=\"_3XFx6CfPlg-4Usgxm0gK8R\"\>)\d+.(?=</p>)" | tail -1)
+active=$(curl -A "xvk3-scraper" -s "https://www.reddit.com/r/darksouls" | grep -Po -m1 "(?<=\"_3XFx6CfPlg-4Usgxm0gK8R\"\>)\d+.?(?=</p>)" | tail -1)
 if [ -z "$active" ]
     then
-    exit 1
+    active=0
 fi
 echo $active
 echo $active >> ~/trd/rds.log
